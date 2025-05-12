@@ -1,9 +1,3 @@
-## Student Number
-c23096745
-
-## URL on the OpenShift server
-https://portfolio-demo-cmt120-portfolio.apps.containers.cs.cf.ac.uk
-
 ## This project
    This project is a personal digital portfolio to show aquired skills and working experiences, where the owner has the account with authorization to edit content in webpage while other users can only register guest account. As a demo for demonstration and test, the owner's account is shown below:  
 User Id:1002  
@@ -41,10 +35,7 @@ Password: owner111
 
 ## Installation Steps
 1. **Clone the repository**
-	You can use gitlab UI to clone respository or by Git Bash  
-   ``bash  
-   git clone https://git.cardiff.ac.uk/c23096745/c23096745_cmt120_cw2.git
-   cd your-repository
+	
 
 2. **Check dependency**
 	1. Navigate to root path of project in CMD or terminal and run this command to activate virtual environment:
