@@ -1,5 +1,5 @@
 ## This project
-   	This project is a personal digital portfolio to show aquired skills and working experiences, where the owner has the account with authorization to edit content in webpage while other users can only register guest account. The owner's account is shown below:  
+   	This project is a personal digital portfolio to show aquired skills and working experiences, where the owner has the account with authorization for full CRUD (Create, Read, Update, Delete) functionality for editing content, with image uploading, all changes being synchronized with a SQLite database via SQLAlchemy ORM. On the contrary, other users can only register guest account. The owner's account is shown below:  
 	User Id:1002  
 	Password: owner111	
 ## Other crucial functions you can test apart from CRUD
