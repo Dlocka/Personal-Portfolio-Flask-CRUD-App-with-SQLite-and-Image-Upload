@@ -1,7 +1,7 @@
 ## This project
-   This project is a personal digital portfolio to show aquired skills and working experiences, where the owner has the account with authorization to edit content in webpage while other users can only register guest account. As a demo for demonstration and test, the owner's account is shown below:  
+   	This project is a personal digital portfolio to show aquired skills and working experiences, where the owner has the account with authorization to edit content in webpage while other users can only register guest account. As a demo for demonstration and test, the owner's account is shown below:  
 User Id:1002  
-Password: owner111
+	Password: owner111
 
 ## About Demo Video 
 	1.The video only contains 3-minutes content, so it only show the pages for the owner where content can be edited and created. As guests, users can only scan all the items controlled by the owner of this portfolio even they register an account.  
