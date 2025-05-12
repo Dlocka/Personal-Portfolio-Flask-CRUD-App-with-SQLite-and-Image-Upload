@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Skills</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/CSS_general.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/CSS_product_panel.css')}}">
+    <script>window.IsToHomePage=true;
+         window.IsLogRedirect=true;
+    </script>
+    
+    
+</head>
+<body>
+    <div id="modal_pic_product" class="modal_pic_window">
+        <span class="modal_pic_window_close" id="closeBtn_modal_pic">&times;</span>
+        <img class="modal_pic_window_content" id="modalImg_pic_product">
+    </div>
+    <div class="back_ground">
+        <div class="main_content">
+            <div>
+            {% include '_public_head.html' %}
+            </div>
+            <div class='exhibite_area' id="create_product_area">
+                <div class="product_panel_onsale">
+                    <div class="product_pic_container">                       
+                        <img src="{{url_for('static',filename='img/'+'default.png')}}" alt="Product Image"  class="product_img">
+
+                    </div>
+                    <form id="productForm" class="productForm">
+                        <div class="product_info_panel">
+                            <div class="product_normal_info">
+                    
+                                <div class="product_panel_lab_input_pair">
+                                    <label for="productName" class="product_panel_label">Skill:</label>
+                                    <input type="text" id="productName" name="name" required class="product_panel_input" placeholder="Enter skill">
+                                </div>
+                    
+                                <div class="product_panel_lab_input_pair">
+                                    <label for="productPrice" class="product_panel_label">Times Used:</label>
+                                    <input type="number" id="productPrice" name="price" required min="0" step="1" class="product_panel_input" placeholder="Enter times used">
+                                </div>
+                    
+                                <div class="product_panel_lab_input_pair">
+                                    <label for="productStock" class="product_panel_label">Hours Used:</label>
+                                    <input type="number" id="productStock" name="stock_quantity" required min="0" step="1" class="product_panel_input" placeholder="Enter hours used">
+                                </div>
+                    
+                                <div class="product_panel_lab_input_pair">
+                                    <label for="productCategory" class="product_panel_label_category">Language:</label>
+                                    <select id="productCategory" name="category_id" class="productCategory_Select" required>
+                                        <!-- Options for categories will be populated here dynamically -->
+                                    </select>
+                                </div>
+                    
+                                <div class="product_panel_lab_input_pair">
+                                    <label for="productImage" class="product_panel_label">Code Image:</label>
+                                    <input type="file" id="productImage" name="image" accept="image/*" class="product_panel_input" onchange="previewImage(this,event)">
+                                </div>
+                            </div>
+                    
+                            <div class="product_panel_lab_input_pair_des">
+                                <label for="productDescription" class="product_panel_label product_panel_label_des">Description:</label>
+                                <textarea id="productDescription" name="description" required class="product_panel_input product_panel_input_des" placeholder="Enter description"></textarea>
+                            </div>
+                        </div>
+                        <div class="product_panel_btn_area">
+                            <button type="button" class="submit" id="btn_submit_create" onclick="createProduct(this,AppendNewGoodPanel)">Submit new skill</button>
+                        </div>
+                        </form>
+
+                </div> 
+            </div>
+
+            
+            <div id="sale_area">    
+                {% for product in products %}
+                <div class="product_panel_onsale">
+                    <div class="product_pic_container">
+                    {% if product.image_url %}
+                        <img src="{{url_for('static',filename='img/'+product.image_url)}}" alt="Product Image" class="product_img">
+                    {% else %}
+                        <img src="{{url_for('static',filename='img/'+'default.png')}}" alt="Product Image"  class="product_img">
+                    {% endif %}
+                    </div>
+                    <form id="productForm_{{ product.product_id }}" class="productForm">
+                        <div class="product_info_panel">
+                            <div class="product_normal_info">
+
+                                <div class="product_panel_lab_input_pair">
+                                <label for="productName_{{ product.product_id }}" class="product_panel_label">Skill:</label>
+                                <input type="text" id="productName_{{ product.product_id }}" name="name" value="{{ product.name }}" required class="product_panel_input">
+                                </div>
+                                
+                                <div class="product_panel_lab_input_pair">
+                                <label for="productPrice_{{ product.product_id }}" class="product_panel_label">Times Used:</label>
+                                <input type="number" id="productPrice_{{ product.product_id }}" name="price" value="{{ product.price }}" required min="0" step="" class="product_panel_input">
+                                </div>
+                                
+                                <div class="product_panel_lab_input_pair">
+                                <label for="productStock_{{ product.product_id }}" class="product_panel_label">Hours Used:</label>
+                                <input type="number" id="productStock_{{ product.product_id }}" name="stock_quantity" value="{{ product.stock_quantity }}" required min="0" step="1" class="product_panel_input">
+                                </div>
+        
+                                <div class="product_panel_lab_input_pair">
+                                <label for="productCategory_{{product.product_id}}" class="product_panel_label_category">Language:</label>
+                                <select id="productCategory_{{product.product_id}}" name="category_id" class="productCategory_Select" data-category-id="{{product.category_id}}" value="{{product.category_id}}"required></select>
+                                </div>
+
+                                <div class="product_panel_lab_input_pair">
+                                    <label for="productImage_{{ product.product_id }}" class="product_panel_label">Code Image:</label>
+                                    <input type="file" id="productImage_{{ product.product_id }}" name="image" accept="image/*" class="product_panel_input" onchange="previewImage(this,event)">
+                                </div>
+                            </div>
+                            <div class="product_panel_lab_input_pair_des">
+                                <label for="productDescription_{{ product.product_id }}" class="product_panel_label product_panel_label_des">Description:</label>
+                                <textarea type="text" id="productDescription_{{ product.product_id }}" name="description" value="{{ product.description }}" required class="product_panel_input product_panel_input_des" value="{{product.description}}">{{ product.description }}</textarea>
+                            </div>
+                        </div>
+                            <div class="product_panel_btn_area">
+                            <button type="button" class="btn_submit" onclick="SubmitForm_ProductChange(this,{{ product.product_id }})">Submit Changes</button>
+                            <button type="button" class="btn_discard" onclick="DiscardChanges(this)">Discard Changes</button>
+                            <button type="button" class="btn_take-down" onclick="TakeDownProduct(this,{{ product.product_id }})">Take Down Skill</button>
+                            </div>
+                    </form>
+                </div>
+                {% endfor %}
+            </div>
+        </div>   
+    </div>
+    <script src="{{url_for('static',filename='js/Cache_Product_Category.js')}}"></script>
+    <script src="{{url_for('static',filename='js/mysale_proPanel.js')}}">
+    </script>
+</body>
+

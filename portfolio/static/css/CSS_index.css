@@ -1,0 +1,61 @@
+.category {
+    background-color: #fa3737;
+    height: 40px;
+    width: 100%;
+    display: flex;
+    align-items: center; 
+    padding: 0 10px; 
+    box-sizing: border-box;
+}
+
+.category a {
+    font-family: "Arial";
+    font-size: 18px;
+    height: 100%;
+    display: flex;
+    align-items: center; 
+    padding: 0 10px;
+    color: white;
+}
+
+.products-category-link {
+
+    padding: 0px 0px; 
+    margin-right: 2px;
+}
+
+
+.exhibition-area {
+    display: flex;
+    background-color: rgb(118, 148, 187);
+}
+
+
+.second-exh-left {
+    width: 400px;
+}
+
+.second-main-area {
+    display: flex;
+}
+
+
+
+.homepage_exhibit_p{
+    font-size: 19px;
+    text-align: justify;
+    padding-left:10px;
+    padding-right: 10px;
+}
+
+#search_text_skill{
+    padding: 8px; 
+    font-size: 18px; 
+    border: 2px solid #FF4500; 
+    width: 380px; 
+    margin: 0px;
+}
+.search_panel_skill{
+display: flex;
+   justify-content: center;
+}

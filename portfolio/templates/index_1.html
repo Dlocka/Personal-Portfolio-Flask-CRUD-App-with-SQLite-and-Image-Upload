@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/CSS_index.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/CSS_general.css')}}">
+    <script>window.IsToHomePage=false;
+
+    </script>
+</head>
+<body>
+    <div class="back_ground">
+     <div class="main_content">
+        <div>
+            {% include '_public_head.html' %}
+        </div>
+       
+
+        <div class="category">
+            <a href="" class="products-category-link">Technical Stack:</a>
+            <a href="/skill_search?searched=MVC" class="session-link">MVC</a>
+            <a href="/skill_search?searched=IOC" class="session-link">IOC</a>
+            <a href="/skill_search?searched=AJAX" class="session-link">AJAX</a>
+
+        </div>
+        <div class="exhibition-area">
+           <img src="{{ url_for('static', filename='img/Back1.jpg')}}" width="600px">
+           <div id="homepage_right_area" style="display: inline-block;">
+                <h2 class="title_home_exhibit">About me</h2>
+                <p class="homepage_exhibit_p">I used to work as a game planner where I was responsible for producing design documents and keeping effective communication between programming group and art group to realize every function in game. During this process, I have acquired Unity and C# by my self, which even enable me to develop VR system for my first master degree. Over time, I have been familiar with various programming concepts and usage of them, such as reflection, AOP (Aspect-Oriented Programming), different design patterns(singleton, decorator, factory, builder, etc.), and IOC (Inversion of Control).</p>
+                <p class="homepage_exhibit_p">
+                In addition, I have acquired significant knowledge in SQL, including common topics like join queries, aggregate functions, and transactions. I've also delved into strategies of performance improvements, such as read-write separation, database sharding, load balancing. Moreover, I have learned data structures, which helps me solve problems efficiently and design robust systems. I have made a progress in programming and I am always eager to acquire new methods and structure to handle new and advanced challenges.
+                </p>
+                <h2 class="title_home_exhibit">This portfolio</h2>
+                <p class="homepage_exhibit_p">This portfolio is to show my working experience and what I have acquired in coding. I will keep my studying and refresh skills I learned. If you wounder whether some kinds of skills is acquired by me, here is a search for them below: </p>
+                <form action='/skill_search' class="search_panel_skill">
+                    <input id="search_text_skill" type="text" name="searched" placeholder="Enter skill searched"/>
+                    <input type="submit" id="search-submit" value="search" />
+                </form>
+            </div>
+           
+        </div> 
+
+     </div>   
+    </div>
+    
+   
+   
+</body>    
+</html>

@@ -1,0 +1,107 @@
+<link rel="stylesheet" href="{{ url_for('static', filename='css/CSS_index.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/CSS_public_head.css') }}">
+<!-- <script type="text/javascript">
+    var user_name = "{{ user_name }}";
+    
+</script> -->
+
+<div class="first_head_container">
+    
+    <text id="head_welcome">Welcome to Li Chonghao's technique portfolio</text>
+    <div id="head_ui">
+        <button id="btn_log_out">Log Out</button>
+        <button id="btn_Login_Retister">Register/Login</button>
+        <div id="user_link_btn_container" class="user-info" style="display: none;">
+            
+            <!-- Assuming you pass the username from Flask to the template -->
+            <a href="/user/{{ username }}" id="user_link"></a>
+            <a href="{{url_for('home_load')}}" class="user_head_nav">Home</a>
+            <a href="{{url_for('mySale_load')}}" id="MySale" class="user_head_nav">My Skill</a>
+            <a href="{{url_for('myFavorite_load')}}" id="Myfavourite" class="user_head_nav">My Experience</a>
+
+        </div>
+        <div id="user_link_btn_container_guest" class="user-info">
+            <a href="/user/{{ username }}" id="user_link_guest"></a>
+            <a href="{{url_for('home_load')}}" class="user_head_nav">Home</a>
+            <a href="{{url_for('mySale_load')}}" id="MySale_1" class="user_head_nav">Skills Exhibition</a>
+            <a href="{{url_for('myFavorite_load')}}" id="Myfavourite_1" class="user_head_nav">Experience</a>
+        </div>
+    </div>
+</div>
+<div class="second-head">
+   
+        <div class="head-product_classify-container">
+            <a class="featured-product-link" >Languages I learn:</a>
+            <a class="featured-product-link" href="{{url_for('GotoProductCategory',category_id=1)}}" target="_blank">C#</a>
+            <a class="featured-product-link" href="{{url_for('GotoProductCategory',category_id=2)}}" target="_blank">Python</a>
+            <a class="featured-product-link" href="{{url_for('GotoProductCategory',category_id=3)}}" target="_blank">SQL</a>
+            <a class="featured-product-link" href="{{url_for('GotoProductCategory',category_id=4)}}" target="_blank">Razor</a>
+            <a class="featured-product-link" href="{{url_for('GotoProductCategory',category_id=5)}}" target="_blank">VBA</a>
+            <a class="featured-product-link" href="{{url_for('GotoProductCategory',category_id=6)}}" target="_blank">Javascript</a>
+        </div>
+        <form action='/language_search' class="search_panel_category">
+            <input id="search-text" type="text" name="searched" placeholder="Enter a kind of language"/>
+            <input type="submit" id="search-submit" value="search" />
+        </form>
+        <!-- <ul id="search-results"></ul> -->
+       
+    
+</div>
+<!-- The Modal -->
+<!-- The mask layer-->
+<div id="loginModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <form id="LoginForm" action="/Users/LoginSubmit"  class="Form_LoginRegis">
+            <h2>Login</h2>
+            <div class="Container_monomial_Panel_log">
+                <label for="user_id" class="label_In_login">User Id:</label>
+                <input type="text" id="user_id" name="user_id" required><br><br>
+                <p></p>
+            </div>
+            <div class="Container_monomial_Panel_log">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required class="label_In_login"><br><br>
+            </div >
+            <p id="login_failure_ms"></p>
+            <button type="submit" id="btn_log_sub" class="btn_log" >Login</button>
+            <button id="btn_ToRegister" class="btn_log_swap" onclick="" type="button">Go to Register</button>
+        </form>
+
+        <form id="RegisterForm" action="/Users/LoginSubmit" class="Form_LoginRegis">
+            <h2 class="title_register">Register</h2>
+            <div class="Container_monomial_Panel">
+                <label for="username_res" class="label_In_login">Username:</label>
+                <input class="register_input" type="text" id="username_res" name="username" required>
+                
+            </div>
+            <p class="Register_Error_ms"></p>
+            <div class="Container_monomial_Panel">
+                <label for="email_res" class="label_In_login">Email:</label>
+                <input class="register_input" type="text" id="email_res" name="email" required>
+                
+            </div>
+            <p class="Register_Error_ms"></p>
+            <div class="Container_monomial_Panel">
+                <label for="password_res" class="label_In_login">Password:</label>
+                <input class="register_input" type="password" id="password_res" name="password" required class="label_In_login">
+                
+            </div>
+            <p class="Register_Error_ms"></p>
+            <div class="Container_monomial_Panel">
+                <label for="whatsapp" class="label_In_login">Whatsapp:</label>
+                <input class="register_input" type="text" id="whatsapp" name="whatsapp" required>
+                
+            </div>
+            <p class="Register_Error_ms"></p>
+            <button type="submit" id="btn_register_sub" class="btn_log">Register</button>
+            <button id="btn_ToLogin" class="btn_log_swap" type="button">Go to Login</button>
+        </form>
+    </div>
+</div>
+<script src="{{ url_for('static', filename='js/general.js') }}"></script>
+<script src="{{ url_for('static', filename='js/LoginCheck.js') }}"></script>
+<script src="{{ url_for('static', filename='js/public_head.js') }}"></script>
+
+

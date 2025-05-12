@@ -1,0 +1,12 @@
+.back_ground{
+    display: flex;
+    background-color: rgb(61, 84, 116);
+}
+.main_content{
+    width: 80%;
+    margin: 0 auto;
+    background-color: rgb(47, 55, 95);
+}
+p{
+    text-indent: 2em;
+}

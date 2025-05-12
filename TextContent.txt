@@ -1,0 +1,35 @@
+Decorator Pattern is a structural design pattern used to dyanamically add behavior or logic. In the Decorator Pattern, the core idea is to create a set of decorator classes that are used to wrap concrete components. Each decorator class adds specific behavior to the object it wraps. In this example to make dishes, decorators are used  to add behaviors such as cutting ,buying, putting, and serving, when we have capsulate AbstractFood class with only method--MakeDish.
+
+
+Inversion of Control (IoC) is a fundamental concept in software design, particularly in the context of object-oriented programming and Dependency Injection. IoC is a principle that helps to achieve loose coupling between components in a system, making the system easier to maintain, test, and scale. In this example, there are types of cellphones and notebooks with different functions available for student. We can take flexible configuration to alter the notebook and cellphone assembled on student object, varing students function according to our requirement.
+
+Stored Procedure is a precompiled collection of one or more SQL statements that can be executed as a single unit. Stored procedures are stored in a database and can be executed by calling them explicitly. Security: without any SQL sentences given by frontend, it eliminate the risk of injection. Furthermore, by only using stored procedures, the access to tables are restricted, because the types of access are only prescribed by stored procedures. Reuse: like capsulated method, it can be reused in applications or users.
+
+A transaction in SQL is a sequence of one or more operations (such as INSERT, UPDATE, DELETE) that are executed as a single unit. The main purpose of a transaction is to ensure all the operations in it will executed successfully, or none of them will be completed. The example of pet trade shown on left conatins 4 operations, pet check, buyer payment, payment proceeds, and owner change. Any step failed must cancel or rollback having executed steps to ensure one payment for one purchase of pet.
+
+AJAX (Asynchronous JavaScript and XML) is a technique used in web development to create dynamic, interactive web applications. It allows web pages to update content asynchronously without block of thread working currently. For example, user can press another button to interact with server before the response from the main thread running the webpage.
+
+ASP.NET MVC (Model-View-Controller) is a web application framework developed by Microsoft, part of the ASP.NET platform. It is based on the MVC design pattern and helps developers build dynamic, modular, and maintainable web applications.Controller responds to user actions by calling set method. View is able to use Razor syntax for dynamic data binding, combining UI tags with dynamic data. The example shows a AJAX call the action through route and receive its request.
+
+Develop a VR system to implement the functionality of searching BIM model contents, allowing users to  find different kinds of firefighting facilities, and providing real-time navigation guidance within the scene. This feature is used for VR-based training on the familiarizations of firefighting and pathfinding training to locate firefighting facilities and emergency exits at a fire scene.
+
+Manage submission of configuration and data table for every release by gitlab and fork. Design numeric of gem system including cost to upgrade and growth of attributes. fill up the numeric of new skills
+
+设计英雄养成维度和数值维度，装备养成维度设计，匹配数值成长曲线函数
+4：规划游戏体力价值，金币价值，道具价值等相关价值计算
+5：协助主策优化细化游戏系统框架，编写常见功能（成就，邮件）等常见系统设计文档
+规划维护部分系统掉落数据表，关卡掉落数据表，宝箱数据表
+熟练使用Office编写游戏策划案，Excel数据表，会写基本VBA语言
+4：熟练使用Unity游戏引擎，能独立编写C#脚本，有产出Demo的能力
+
+
+
+熟练使用Office编写游戏策划案，Excel数据表，会写基本VBA语言
+4：熟练使用Unity游戏引擎，能独立编写C#脚本，有产出Demo的能力
+
+Design dimensions of characters' growth, equipment development, and curve of function of them.
+      Plan the game’s energy value, coin value, item value, and other related value calculations.
+      Assist the lead designer in optimizing and refining the game system framework, writing design documents for common features (such as achievements, emails), and other common system designs.
+     Plan and maintain certain system's data tables of award distribution, and treasure chest.
+     Intensify proficiency in using Office to write game design documents, Excel spreadsheets, and capable of writing basic VBA scripts.
+      Strenthen ability to use the Unity game engine, able myself to independently code C# scripts to produce demos.

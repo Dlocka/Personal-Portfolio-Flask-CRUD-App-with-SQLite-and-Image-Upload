@@ -1,0 +1,78 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/CSS_general.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/CSS_product_panel.css')}}">
+    <script>window.IsToHomePage=true;
+        window.IsLogRedirect=true;
+   </script>
+</head>
+<body>
+<div class="back_ground">
+    <div class="main_content">
+        <div>
+        {% include '_public_head.html' %}
+        </div>
+       
+        <div id="sale_area"> 
+            {% if products %}
+                {% for product in products %}
+            <div class="product_panel_onsale">
+                <div class="product_pic_container">
+                    {% if product.image_url %}
+                    <img src="{{url_for('static',filename='img/'+product.image_url)}}" alt="Product Image" class="product_img">
+                    {% else %}
+                    <img src="{{url_for('static',filename='img/default.img')}}" alt="Product Image"  class="product_img">
+                    {% endif %}
+                </div>
+                <form id="productForm_{{ product.product_id }}" class="productForm">
+                    <div class="product_info_panel">
+                        <div class="product_normal_info">
+                
+                            <div class="product_panel_lab_input_pair">
+                                <label for="productName_{{ product.product_id }}" class="product_panel_label">Skill:</label>
+                                <input type="text" id="productName_{{ product.product_id }}" name="name" value="{{ product.name }}" disabled class="product_panel_input">
+                            </div>
+                
+                            <div class="product_panel_lab_input_pair">
+                                <label for="productPrice_{{ product.product_id }}" class="product_panel_label">Times Used:</label>
+                                <input type="number" id="productPrice_{{ product.product_id }}" name="price" value="{{ product.price }}" disabled class="product_panel_input">
+                            </div>
+                            
+                            <div class="product_panel_lab_input_pair">
+                                <label for="productStock_{{ product.product_id }}" class="product_panel_label">Hours Used:</label>
+                                <input type="number" id="productStock_{{ product.product_id }}" name="stock_quantity" value="{{ product.stock_quantity }}" disabled class="product_panel_input">
+                            </div>
+                
+                            <div class="product_panel_lab_input_pair">
+                                <label for="productCategory_{{product.product_id}}" class="product_panel_label">Language:</label>
+                                <input type="text" id="productCategory_{{product.product_id}}" name="category_id" disabled class="productCategory_field product_panel_input" value="{{product.category_id}}">
+
+                            </div>
+                
+                        </div>
+                
+                        <div class="product_panel_lab_input_pair_des">
+                            <label for="productDescription_{{ product.product_id }}" class="product_panel_label product_panel_label_des">Description:</label>
+                            <textarea type="text" id="productDescription_{{ product.product_id }}" name="description" disabled class="product_panel_input product_panel_input_des">{{ product.description }}</textarea>
+                        </div>
+                    </div>
+                
+                    <!-- For guests, disable the action buttons -->
+                    
+                </form>
+                
+            </div>
+                {% endfor %}
+            {% else %}
+            <p class="no_product_reminder">No exsiting skill belonging to this category</p>
+            {% endif %}
+        </div>
+    </div>   
+</body>

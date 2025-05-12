@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Experience</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/CSS_general.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/CSS_product_panel.css')}}">
+    <script>window.IsToHomePage=true;
+        
+    </script>
+    <script src="{{url_for('static',filename='js/Cache_Product_Category.js')}}"></script>
+    
+</head>
+<body>
+    <div id="modal_pic_product" class="modal_pic_window">
+        <span class="modal_pic_window_close" id="closeBtn_modal_pic">&times;</span>
+        <img class="modal_pic_window_content" id="modalImg_pic_product">
+    </div>
+    <div class="back_ground">
+        <div class="main_content">
+            <div>
+            {% include '_public_head.html' %}
+            </div>
+            <div class='exhibite_area' id="create_product_area">
+                <div class="product_panel_onsale" id="product_create_panel">
+                    <!-- <div class="product_pic_container">                       
+                        <img src="{{url_for('static',filename='img/default.img')}}" alt="Product Image"  class="product_img">
+
+                    </div> -->
+                    <form id="productForm" class="productForm">
+                        <div class="product_info_panel">
+                            <div class="product_normal_info">
+                    
+                                <div class="product_panel_lab_input_pair">
+                                    <label for="productName" class="product_panel_label">Job Title:</label>
+                                    <input type="text" id="productName" name="job_title" required class="product_panel_input experience_job_title_input" placeholder="Enter skill">
+                                </div>
+                    
+                                <div class="product_panel_lab_input_pair">
+                                    <label for="productPrice" class="product_panel_label">Company:</label>
+                                    <input type="text" id="productPrice" name="company" required  class="product_panel_input experience_company_input" placeholder="Enter company">
+                                </div>
+                    
+                                <div class="product_panel_lab_input_pair">
+                                    <label for="productStock" class="product_panel_label">Start date:</label>
+                                    <input type="text" id="productStock" name="start_date" required class="product_panel_input experience_start_date_input" placeholder="Enter start date">
+                                </div>
+
+                                <div class="product_panel_lab_input_pair">
+                                    <label for="end_date" class="product_panel_label">End date:</label>
+                                    <input type="text" id="end_date" name="end_date" required class="product_panel_input experience_end_date_input" placeholder="Enter start date">
+                                </div>
+                                
+                                <!-- <div class="product_panel_lab_input_pair">
+                                    <label for="productImage" class="product_panel_label">Code Image:</label>
+                                    <input type="file" id="productImage" name="image" accept="image/*" class="product_panel_input experience_image_input">
+                                </div> -->
+                            </div>
+                    
+                            <div class="product_panel_lab_input_pair_des">
+                                <label for="productDescription" class="product_panel_label product_panel_label_des">Duty:</label>
+                                <textarea id="productDescription" name="duty" required class="product_panel_input product_panel_input_des" placeholder="Enter description"></textarea>
+                            </div>
+                        </div>
+                    
+                        <button type="button" class="submit" id="btn_submit_create" onclick="createProduct(this,AppendNewGoodPanel)">Submit new experience</button>
+                    </form>
+
+                </div> 
+            </div>
+
+            
+            <div id="sale_area">    
+                {% for experience in experiences %}
+                <div class="product_panel_onsale">
+                    <!-- <div class="product_pic_container">
+                    {% if experience.image_url %}
+                        <img src="{{url_for('static',filename='img/'+experience.image_url)}}" alt="Product Image" class="product_img">
+                    {% else %}
+                        <img src="{{url_for('static',filename='img/default.img')}}" alt="Product Image"  class="product_img">
+                    {% endif %}
+                    </div> -->
+                    <form id="productForm_{{ experience.experience_id }}" class="productForm">
+                        <div class="product_info_panel">
+                            <div class="product_normal_info">
+                                
+                                <div class="product_panel_lab_input_pair">
+                                    <label for="productName" class="product_panel_label">Job Title:</label>
+                                    <input type="text" id="productName_{{experience_id}}" name="job_title" required class="product_panel_input" value="{{experience.job_title}}" placeholder="Enter skill">
+                                </div>
+                    
+                                <div class="product_panel_lab_input_pair">
+                                    <label for="productPrice" class="product_panel_label">Company:</label>
+                                    <input type="text" id="productPrice_{{experience_id}}" name="company" required  class="product_panel_input" value="{{experience.company}}" placeholder="Enter company">
+                                </div>
+                    
+                                <div class="product_panel_lab_input_pair">
+                                    <label for="productStock" class="product_panel_label">Start date:</label>
+                                    <input type="text" id="productStock_{{experience_id}}" name="start_date" required class="product_panel_input" value="{{experience.start_date}}" placeholder="Enter start date">
+                                </div>
+
+                                <div class="product_panel_lab_input_pair">
+                                    <label for="end_date" class="product_panel_label">End date:</label>
+                                    <input type="text" id="end_date_{{experience_id}}" name="end_date" required class="product_panel_input" value="{{experience.end_date}}" placeholder="Enter start date">
+                                </div>
+                                
+                                <!-- <div class="product_panel_lab_input_pair">
+                                    <label for="productImage" class="product_panel_label">Code Image:</label>
+                                    <input type="file" id="productImage_{{experience_id}}" name="image" accept="image/*" class="product_panel_input">
+                                </div> -->
+                            </div>
+                    
+                            <div class="product_panel_lab_input_pair_des">
+                                <label for="productDescription" class="product_panel_label product_panel_label_des">Duty:</label>
+                                <textarea id="productDescription" name="duty" required class="product_panel_input product_panel_input_des" placeholder="Enter duty"> {{experience.duty}}</textarea>
+                            </div>
+                        </div>
+                            <div class="product_panel_btn_area">
+                            <button type="button" class="btn_submit" onclick="SubmitForm_ProductChange(this,{{ experience.experience_id }})">Submit Changes</button>
+                            <button type="button" class="btn_discard" onclick="DiscardChanges(this)">Discard Changes</button>
+                            <button type="button" class="btn_take-down" onclick="TakeDownProduct(this,{{ experience.experience_id }})">Take Down Experience</button>
+                            </div>
+                    </form>
+                </div>
+                {% endfor %}
+            </div>
+        </div>   
+    </div>
+    
+    <script src="{{url_for('static',filename='js/myexperience_Panel.js')}}">
+    </script>
+</body>
+
