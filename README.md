@@ -1,13 +1,8 @@
 ## This project
-   	This project is a personal digital portfolio to show aquired skills and working experiences, where the owner has the account with authorization to edit content in webpage while other users can only register guest account. As a demo for demonstration and test, the owner's account is shown below:  
-User Id:1002  
-	Password: owner111
-
-## About Demo Video 
-	1.The video only contains 3-minutes content, so it only show the pages for the owner where content can be edited and created. As guests, users can only scan all the items controlled by the owner of this portfolio even they register an account.  
-	2.This video is recorded by Bandi, the free version, so there is a watermark 'www.Bandi.com', which is not the content of project. 
-	
-## Other crucial functions you can test apart from the demo video
+   	This project is a personal digital portfolio to show aquired skills and working experiences, where the owner has the account with authorization to edit content in webpage while other users can only register guest account. The owner's account is shown below:  
+	User Id:1002  
+	Password: owner111	
+## Other crucial functions you can test apart from CRUD
 	1. login status verfication
 		Introduction:  
 			Because only owner has authority to edit the content, user will be asked to login again if he try to edit when login status is removed or expired.
